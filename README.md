@@ -1,0 +1,2 @@
+# mr-rails
+Rails training
