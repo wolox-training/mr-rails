@@ -29,9 +29,6 @@ before_script:
   - psql -c "DROP DATABASE IF EXISTS \"WbooksApi_test\";" -U postgres
   - psql -c "CREATE DATABASE \"WbooksApi_test\" ENCODING 'utf8';" -U postgres
   - bundle exec rake db:migrate
-  - gem install rspec-core
-  - gem install rubocop
-  - gem install scss-lint
   - bundle install
 
 script:
