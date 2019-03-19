@@ -24,10 +24,10 @@ before_install:
   - gem install bundler
 
 before_script:
-  - cp config/database.yml config/database.travis.yml
-  - psql -c "CREATE USER \"rails-bootstrap\" WITH PASSWORD 'rails-bootstrap';" -U postgres
-  - psql -c "DROP DATABASE IF EXISTS \"rails-bootstrap_test\";" -U postgres
-  - psql -c "CREATE DATABASE \"rails-bootstrap_test\" ENCODING 'utf8';" -U postgres
+  - cp config/database.travis.yml config/database.yml
+  - psql -c "CREATE USER \"wbooks-api" WITH PASSWORD 'wbooks-api';" -U postgres
+  - psql -c "DROP DATABASE IF EXISTS \"WbooksApi_test";" -U postgres
+  - psql -c "CREATE DATABASE \"WbooksApi_test" ENCODING 'utf8';" -U postgres
   - bundle exec rake db:migrate
 
 script:
