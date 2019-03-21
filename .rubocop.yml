@@ -3,3 +3,10 @@ Style/FrozenStringLiteralComment:
 
 Documentation:
   Enabled: false
+
+#Check that models subclass ApplicationRecord.
+Rails/ApplicationRecord:
+  Enabled: false
+
+LineLength:
+  Max: 99

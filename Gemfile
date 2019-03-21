@@ -67,3 +67,5 @@ gem 'rubocop', '~> 0.66.0'
 gem 'rspec-core', '~> 3.8'
 
 gem 'scss-lint', '~> 0.7.0'
+
+gem 'devise_token_auth', '~> 1.1.0'
