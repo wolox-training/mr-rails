@@ -27,12 +27,23 @@ class DeviseTokenAuthCreateUsers < ActiveRecord::Migration[5.2]
 
       t.timestamps
 
-        ## Trackable
-        t.integer  :sign_in_count, :default => 0
-        t.datetime :current_sign_in_at
-        t.datetime :last_sign_in_at
-        t.string   :current_sign_in_ip
-        t.string   :last_sign_in_ip
+      ## Trackable
+      t.integer  :sign_in_count, :default => 0
+      t.datetime :current_sign_in_at
+      t.datetime :last_sign_in_at
+      t.string   :current_sign_in_ip
+      t.string   :last_sign_in_ip
+
+    end
+
+    create_table(:books) do |t|
+      #Required
+      t.string :genre, :null => false
+      t.string :author, :null => false
+      t.string :image, :null => false
+      t.string :title, :null => false
+      t.string :editor, :null => false
+      t.string :year, :null => false
 
     end
 
