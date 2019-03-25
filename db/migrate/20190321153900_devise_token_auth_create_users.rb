@@ -37,7 +37,6 @@ class DeviseTokenAuthCreateUsers < ActiveRecord::Migration[5.2]
     end
 
     create_table(:books) do |t|
-      
       #Required
       t.string :genre, :null => false
       t.string :author, :null => false
