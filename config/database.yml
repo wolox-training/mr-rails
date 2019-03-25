@@ -58,6 +58,8 @@ development:
 test:
   <<: *default
   database: WbooksApi_test
+  username: wbooks-api
+  password: wbooks-api
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,5 +83,5 @@ test:
 production:
   <<: *default
   database: mr-rails_production
-  username: mr-rails
-  password: <%= ENV['MR-RAILS_DATABASE_PASSWORD'] %>
+  username: wbooks-api
+  password: wbooks-api
