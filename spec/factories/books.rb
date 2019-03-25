@@ -5,6 +5,6 @@ FactoryBot.define do
     image { Faker::Placeholdit.image }
     title { Faker::Book.title }
     editor { Faker::Book.publisher }
-    year { Faker::Number.between(1900,2019) }
+    year { Faker::Number.between(1900, 2019) }
   end
 end

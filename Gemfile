@@ -74,3 +74,5 @@ gem 'devise_token_auth', '~> 1.1.0'
 gem 'faker', '~> 1.9.3'
 
 gem 'factory_bot_rails', '~> 5.0.1'
+
+gem 'rubocop-rspec', '~> 1.32.0'
