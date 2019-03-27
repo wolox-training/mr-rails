@@ -1,6 +1,5 @@
 class DeviseTokenAuthCreateUsers < ActiveRecord::Migration[5.2]
   def change
-    
     create_table(:users) do |t|
       ## Required
       t.string :provider, :null => false, :default => "email"
@@ -33,18 +32,6 @@ class DeviseTokenAuthCreateUsers < ActiveRecord::Migration[5.2]
       t.datetime :last_sign_in_at
       t.string   :current_sign_in_ip
       t.string   :last_sign_in_ip
-
-    end
-
-    create_table(:books) do |t|
-      #Required
-      t.string :genre, :null => false
-      t.string :author, :null => false
-      t.string :image, :null => false
-      t.string :title, :null => false
-      t.string :editor, :null => false
-      t.string :year, :null => false
-
     end
 
     add_index :users, :email,                unique: true
