@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :rent do
-    user { Faker::Name.first_name }
-    book { Faker::Book.title }
-    rent_start { Faker::Date.today }
-    rent_end { Faker::Date.today + 5 }
+    user factory: :user
+    book factory: :book
+    start_date { Faker::Date.backward(5) }
+    end_date { Faker::Date.forward(5) }
   end
 end
