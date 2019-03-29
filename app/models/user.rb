@@ -3,4 +3,5 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :trackable, :validatable, :rememberable
   include DeviseTokenAuth::Concerns::User
+  has_many :rents, dependent: :destroy
 end
