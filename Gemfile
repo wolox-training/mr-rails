@@ -76,3 +76,7 @@ gem 'faker', '~> 1.9.3'
 gem 'factory_bot_rails', '~> 5.0.1'
 
 gem 'rubocop-rspec', '~> 1.32.0'
+
+gem 'active_model_serializers', '~> 0.10.0'
+
+gem 'wor-paginate', '~> 0.1.4'
