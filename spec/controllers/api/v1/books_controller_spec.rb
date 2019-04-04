@@ -1,6 +1,4 @@
 require 'rails_helper'
-require 'active_record/errors'
-require './spec/support/shared_context/authenticate_user.rb'
 
 describe BooksController, type: :controller do
   describe 'GET #index' do
@@ -64,9 +62,7 @@ describe BooksController, type: :controller do
       let!(:book) { create(:book) }
 
       it 'resonds with the book json' do
-        expect(response.body).to eq BookSerializer.new(
-          book, root: false
-        ).to_json
+        expect(response.body).to eq BookSerializer.new(book).to_json
       end
 
       it 'responds with status 200 (OK)' do
