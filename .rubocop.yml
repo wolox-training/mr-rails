@@ -11,13 +11,13 @@ Rails/ApplicationRecord:
   Enabled: false
 
 LineLength:
-  Max: 160
+  Max: 99
 
 Style/ExpandPathArguments:
   Enabled: false
 
 Metrics/BlockLength:
-  Max: 70
+  Max: 80
 
 RSpec/LetSetup:
   Enabled: false

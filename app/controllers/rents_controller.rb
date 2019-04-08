@@ -1,5 +1,4 @@
 class RentsController < ApplicationController
-  include Wor::Paginate
   before_action :authenticate_user!, only: %i[index create]
 
   def index
@@ -7,7 +6,13 @@ class RentsController < ApplicationController
   end
 
   def create
-    rent = Rent.create!(params.require(:rent).permit(:user_id, :book_id, :start_date, :end_date))
+    rent = Rent.create!(create_rent_params)
     render json: rent
+  end
+
+  private
+
+  def create_rent_params
+    params.require(:rent).permit(:user_id, :book_id, :start_date, :end_date)
   end
 end
