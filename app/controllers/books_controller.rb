@@ -1,5 +1,4 @@
 class BooksController < ApplicationController
-  include Wor::Paginate
   before_action :authenticate_user!, only: %i[show index]
   def show
     book = Book.find(book_id)
