@@ -4,16 +4,9 @@ html
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
   body
     p = t('.created_at', created_at: @rent.created_at)
-      / | Rent successfully created at: #{@rent.created_at}
     p = t('.book', title: @book.title)
-      / | Book: #{@book.title}
     p = t('.genre', genre: @book.genre)
-      / | Genre: #{@book.genre}
     p = t('.author', author: @book.author)
-      / | Author: #{@book.author}
     p = t('.year', year: @book.year)
-      / | Year: #{@book.year}
     p = t('.start_date', start_date: @rent.start_date)
-      / | Rent start date: #{@rent.start_date}
     p = t('.end_date', end_date: @rent.end_date)
-      / | Rent end date: #{@rent.end_date}
