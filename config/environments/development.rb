@@ -1,4 +1,3 @@
-
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -32,9 +31,23 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  # config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
+
+  config.active_job.queue_adapter = :sidekiq
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    user_name: Rails.application.secrets.mailer_user_name,# ENV['USER_NAME'],
+    password: Rails.application.secrets.mailer_password,# ENV['PASSWORD'],
+    address: Rails.application.secrets.mailer_address,# ENV['ADDRESS'],
+    domain: Rails.application.secrets.mailer_domain, # ENV['DOMAIN'],
+    port: Rails.application.secrets.mailer_port,# ENV['PORT'],
+    authentication: :cram_md5
+  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
