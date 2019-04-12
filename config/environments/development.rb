@@ -41,11 +41,11 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    user_name: ENV['USER_NAME'],
-    password: ENV['PASSWORD'],
-    address: ENV['ADDRESS'],
-    domain: ENV['DOMAIN'],
-    port: ENV['PORT'],
+    user_name: Rails.application.secrets.mailer_user_name,# ENV['USER_NAME'],
+    password: Rails.application.secrets.mailer_password,# ENV['PASSWORD'],
+    address: Rails.application.secrets.mailer_address,# ENV['ADDRESS'],
+    domain: Rails.application.secrets.mailer_domain, # ENV['DOMAIN'],
+    port: Rails.application.secrets.mailer_port,# ENV['PORT'],
     authentication: :cram_md5
   }
 
