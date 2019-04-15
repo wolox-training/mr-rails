@@ -1,0 +1,12 @@
+es:
+  hello: "Hola mundo"
+  user_mailer:
+    notice_email:
+      subject: 'Notificacion de alquiler'
+      created_at: 'El alquiler fue creado exitosamente: %{created_at}'
+      book: 'Libro: %{title}'
+      genre: 'Genero: %{genre}'
+      author: 'Autor: %{author}'
+      year: 'Año: %{year}'
+      start_date: 'Fecha de comienzo del alquiler: %{start_date}'
+      end_date: 'Fecha de finalización del alquiler: %{end_date}'

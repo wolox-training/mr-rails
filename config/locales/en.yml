@@ -31,3 +31,13 @@
 
 en:
   hello: "Hello world"
+  user_mailer:
+    notice_email:
+      subject: 'Rent Notification'
+      created_at: 'Rent successfully created at: %{created_at}'
+      book: 'Book: %{title}'
+      genre: 'Genre: %{genre}'
+      author: 'Author: %{author}'
+      year: 'Year: %{year}'
+      start_date: 'Rent start date: %{start_date}'
+      end_date: 'Rent end date: %{end_date}'
