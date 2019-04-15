@@ -44,7 +44,7 @@ describe RentsController do
 
   describe 'POST #create' do
     context 'without authenticated user' do
-      before { post :create, params: FactoryBot.attributes_for(:rent) }
+      before { post :create, params: attributes_for(:rent) }
 
       it 'responds with unauthorized status code' do
         expect(response).to have_http_status(:unauthorized)
@@ -63,29 +63,35 @@ describe RentsController do
 
     context 'with an unexistent book' do
       include_context 'with authenticated user'
+
+      let(:bad_parameters) { attributes_for(:rent, user_id: current_user.id, book_id: nil) }
+
       it 'responds to bad parameters with status 400 (BAD REQUEST)' do
-        bad_parameter = FactoryBot.create(:rent).attributes
-        bad_parameter['book_id'] = -1
-        expect { post :create, params: { rent: bad_parameter } }
+        expect { post :create, params: { rent: bad_parameters } }
           .to raise_error(ActiveRecord::RecordInvalid)
       end
     end
 
     context 'with an unexistent user' do
       include_context 'with authenticated user'
+
+      let(:bad_parameters) { attributes_for(:rent, user_id: -1, book_id: create(:book).id) }
+
       it 'responds to bad parameters with status 400 (BAD REQUEST)' do
-        bad_parameter = FactoryBot.create(:rent).attributes
-        bad_parameter['user_id'] = -1
-        expect { post :create, params: { rent: bad_parameter } }
+        expect { post :create, params: { rent: bad_parameters } }
           .to raise_error(ActiveRecord::RecordInvalid)
       end
     end
 
     context 'when creation was succesful' do
       include_context 'with authenticated user'
+
       subject!(:http_request) do
-        post :create, params: { rent: FactoryBot.create(:rent).attributes }
+        post :create, params:
+        { rent: attributes_for(:rent, user_id: current_user.id, book_id: book_id) }
       end
+
+      let(:book_id) { create(:book).id }
 
       it 'responds with status 200 (OK)' do
         expect(response).to have_http_status(:ok)

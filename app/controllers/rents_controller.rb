@@ -17,6 +17,6 @@ class RentsController < ApplicationController
   private
 
   def create_rent_params
-    params.require(:rent).permit(:user_id, :book_id, :start_date, :end_date, :created_at)
+    params.require(:rent).permit(:user_id, :book_id, :start_date, :end_date)
   end
 end
