@@ -85,3 +85,5 @@ gem 'wor-paginate', '~> 0.1.4'
 gem 'sidekiq', '~> 5.2.5'
 
 gem 'slim-rails', '~> 3.2.0'
+
+gem 'pundit', '~> 2.0.1'
