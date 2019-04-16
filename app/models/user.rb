@@ -4,5 +4,5 @@ class User < ActiveRecord::Base
          :recoverable, :trackable, :validatable, :rememberable
   include DeviseTokenAuth::Concerns::User
   has_many :rents, dependent: :destroy
-  has_many :booksuggestions, dependent: :destroy
+  has_many :book_suggestions, dependent: :destroy
 end
