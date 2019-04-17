@@ -77,9 +77,10 @@ describe RentsController do
 
       let(:bad_parameters) { attributes_for(:rent, user_id: -1, book_id: create(:book).id) }
 
-      it 'responds to bad parameters with status 400 (BAD REQUEST)' do
-        expect { post :create, params: { rent: bad_parameters } }
-          .to raise_error(ActiveRecord::RecordInvalid)
+      before { post :create, params: { rent: bad_parameters } }
+
+      it 'responds to bad parameters with status 401 (UNAUTHORIZED)' do
+        expect(response).to have_http_status(:unauthorized)
       end
     end
 
