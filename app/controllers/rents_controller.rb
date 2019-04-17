@@ -7,8 +7,9 @@ class RentsController < ApplicationController
   end
 
   def create
-    rent = Rent.create!(create_rent_params)
+    rent = Rent.new(create_rent_params)
     authorize rent
+    rent.save!
     render json: rent
     mail = UserMailer.notice_email(rent)
     mail.deliver_later

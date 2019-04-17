@@ -1,6 +1,10 @@
 class BookSuggestionsController < ApplicationController
+  before_action :authenticate_user!, only: %i[create]
+
   def create
-    book_suggestion = BookSuggestion.create!(create_book_suggestion_params)
+    book_suggestion = BookSuggestion.new(create_book_suggestion_params)
+    authorize book_suggestion
+    book_suggestion.save!
     render json: book_suggestion, status: :created
   end
 
