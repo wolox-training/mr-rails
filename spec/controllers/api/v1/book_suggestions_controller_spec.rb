@@ -2,16 +2,6 @@ require 'rails_helper'
 
 describe BookSuggestionsController do
   describe 'POST #create' do
-    context 'without authenticated user' do
-      let(:no_user_book_suggestion) { attributes_for(:book_suggestion) }
-
-      before { post :create, params: { book_suggestion: no_user_book_suggestion } }
-
-      it 'responds with status 401 (UNAUTHORIZED)' do
-        expect(response).to have_http_status(:unauthorized)
-      end
-    end
-
     context 'with invalid user reference' do
       include_context 'with authenticated user'
 
@@ -106,6 +96,16 @@ describe BookSuggestionsController do
       let(:nil_synopsis_book_suggestion) { attributes_for(:book_suggestion, price: nil) }
 
       before { post :create, params: { book_suggestion: nil_synopsis_book_suggestion } }
+
+      it 'responds with status 201 (CREATED)' do
+        expect(response).to have_http_status(:created)
+      end
+    end
+
+    context 'with anonymous user' do
+      let(:no_user_book_suggestion) { attributes_for(:book_suggestion) }
+
+      before { post :create, params: { book_suggestion: no_user_book_suggestion } }
 
       it 'responds with status 201 (CREATED)' do
         expect(response).to have_http_status(:created)
