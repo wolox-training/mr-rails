@@ -1,5 +1,4 @@
-class BooksController < ApplicationController
-  before_action :authenticate_user!, only: %i[show index]
+class BooksController < ApiController
   def show
     book = Book.find(book_id)
     render json: book

@@ -1,5 +1,5 @@
-class BookSuggestionsController < ApplicationController
-  before_action :authenticate_user!, only: %i[create]
+class BookSuggestionsController < ApiController
+  skip_before_action :authenticate_user!
 
   def create
     book_suggestion = BookSuggestion.new(create_book_suggestion_params)

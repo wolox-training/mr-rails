@@ -17,7 +17,7 @@ Style/ExpandPathArguments:
   Enabled: false
 
 Metrics/BlockLength:
-  Max: 80
+  Max: 100
 
 RSpec/LetSetup:
   Enabled: false

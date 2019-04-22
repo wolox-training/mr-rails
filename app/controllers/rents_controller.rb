@@ -1,6 +1,4 @@
-class RentsController < ApplicationController
-  before_action :authenticate_user!, only: %i[index create]
-
+class RentsController < ApiController
   def index
     rents = policy_scope(Rent)
     render_paginated rents
