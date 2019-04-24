@@ -87,3 +87,5 @@ gem 'sidekiq', '~> 5.2.5'
 gem 'slim-rails', '~> 3.2.0'
 
 gem 'pundit', '~> 2.0.1'
+
+gem 'activeadmin', '~> 1.4.3'
