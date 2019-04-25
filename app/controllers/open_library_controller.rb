@@ -1,7 +1,7 @@
 class OpenLibraryController < ApiController
   def index
     book = book_request
-    render_paginated book
+    render json: book
   end
 
   private

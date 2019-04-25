@@ -3,7 +3,10 @@ class OpenLibrary
   base_uri 'https://openlibrary.org'
 
   def show(isbn)
-    response = self.class.get("/api/books?bibkeys=ISBN:#{isbn}&format=json&jscmd=data")
+    # response = self.class.get("/api/books?bibkeys=ISBN:#{isbn}&format=json&jscmd=data")
+    response = self.class.get('/api/books', query: { bibkeys: "ISBN:#{isbn}",
+                                                     format: 'json',
+                                                     jscmd: 'data' })
     response_key = response[response.keys[0]]
     book_details(response_key)
   end
