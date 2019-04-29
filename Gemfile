@@ -91,3 +91,5 @@ gem 'pundit', '~> 2.0.1'
 gem 'activeadmin', '~> 1.4.3'
 
 gem 'httparty', '~> 0.17.0'
+
+gem 'webmock', '~> 3.5.1'
