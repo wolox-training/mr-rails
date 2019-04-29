@@ -3,15 +3,22 @@ class OpenLibrary
   base_uri 'https://openlibrary.org'
 
   def show(isbn)
-    # response = self.class.get("/api/books?bibkeys=ISBN:#{isbn}&format=json&jscmd=data")
-    response = self.class.get('/api/books', query: { bibkeys: "ISBN:#{isbn}",
-                                                     format: 'json',
-                                                     jscmd: 'data' })
-    response_key = response[response.keys[0]]
-    book_details(response_key)
+    response = generate_response(isbn)
+    if response.response.code_type == Net::HTTPOK
+      response_key = response[response.keys[0]]
+      book_details(response_key)
+    elsif response.response.code_type == Net::HTTPUnauthorized
+      response.parsed_response
+    end
   end
 
   private
+
+  def generate_response(isbn)
+    self.class.get('/api/books',
+                   query: { bibkeys: "ISBN:#{isbn}", format: 'json', jscmd: 'data' },
+                   headers: { 'Content-Type': 'application/json' })
+  end
 
   def book_details(response_key)
     {
