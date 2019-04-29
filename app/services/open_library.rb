@@ -4,10 +4,10 @@ class OpenLibrary
 
   def show(isbn)
     response = generate_response(isbn)
-    if response.response.code_type == Net::HTTPOK
-      response_key = response[response.keys[0]]
+    if !response.parsed_response.empty?
+      response_key = response[response.keys.first]
       book_details(response_key)
-    elsif response.response.code_type == Net::HTTPUnauthorized
+    else
       response.parsed_response
     end
   end
