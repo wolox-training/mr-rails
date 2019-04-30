@@ -1,6 +1,8 @@
 class OpenLibraryController < ApiController
   def index
     book = book_request
+    raise ActiveRecord::RecordNotFound if book.empty?
+
     render json: book
   end
 
