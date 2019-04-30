@@ -16,14 +16,14 @@ class OpenLibrary
   end
 
   def process_response(response)
-    case response.code_type.to_s
-    when 'Net::HTTPOK'
+    case response.code
+    when 200
       if !response.parsed_response.empty?
         book_details(response[response.keys.first])
       else
         response.parsed_response
       end
-    when 'Net::HTTPUnauthorized'
+    when 401
       response.parsed_response
     end
   end
