@@ -1,7 +1,11 @@
 class OpenLibraryController < ApiController
   def index
     book = book_request
-    render json: book
+    if book.empty?
+      render json: book, status: 404
+    else
+      render json: book, status: 200
+    end
   end
 
   private

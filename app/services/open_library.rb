@@ -4,12 +4,7 @@ class OpenLibrary
 
   def show(isbn)
     response = generate_response(isbn)
-    if !response.parsed_response.empty?
-      response_key = response[response.keys.first]
-      book_details(response_key)
-    else
-      response.parsed_response
-    end
+    process_response(response)
   end
 
   private
@@ -18,6 +13,19 @@ class OpenLibrary
     self.class.get('/api/books',
                    query: { bibkeys: "ISBN:#{isbn}", format: 'json', jscmd: 'data' },
                    headers: { 'Content-Type': 'application/json' })
+  end
+
+  def process_response(response)
+    case response.code_type.to_s
+    when 'Net::HTTPOK'
+      if !response.parsed_response.empty?
+        book_details(response[response.keys.first])
+      else
+        response.parsed_response
+      end
+    when 'Net::HTTPUnauthorized'
+      response.parsed_response
+    end
   end
 
   def book_details(response_key)
