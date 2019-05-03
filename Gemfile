@@ -93,3 +93,5 @@ gem 'activeadmin', '~> 1.4.3'
 gem 'httparty', '~> 0.17.0'
 
 gem 'webmock', '~> 3.5.1'
+
+gem 'sidekiq-scheduler', '~> 3.0.0'

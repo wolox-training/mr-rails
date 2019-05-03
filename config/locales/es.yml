@@ -10,3 +10,6 @@ es:
       year: 'Año: %{year}'
       start_date: 'Fecha de comienzo del alquiler: %{start_date}'
       end_date: 'Fecha de finalización del alquiler: %{end_date}'
+    expiration_email:
+      subject: 'Vencimiento del alquiler'
+      body: 'Tu alquiler del librp "%{title}" vence hoy (%{end_date}).'
