@@ -41,3 +41,6 @@ en:
       year: 'Year: %{year}'
       start_date: 'Rent start date: %{start_date}'
       end_date: 'Rent end date: %{end_date}'
+    expiration_email:
+      subject: 'Rent Expiration'
+      body: 'Your rent of the book "%{title}" expires today (%{end_date}).'
